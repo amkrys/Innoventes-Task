@@ -54,7 +54,8 @@ dependencies {
     implementation(libs.lifecycle.livedata)
 
     // dimens
-    implementation(libs.dimens)
+    implementation(libs.dimensSp)
+    implementation(libs.dimensDp)
 
     // testing
     testImplementation(libs.junit)

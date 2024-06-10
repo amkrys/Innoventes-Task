@@ -31,7 +31,8 @@ lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", n
 lifecycle-livedata = { module = "androidx.lifecycle:lifecycle-livedata-ktx", name = "lifecycle-livedata", version.ref = "lifecycle" }
 
 # dimens
-dimens = { module = "com.intuit.sdp:sdp-android", version.ref = "dimens" }
+dimensDp = { module = "com.intuit.sdp:sdp-android", version.ref = "dimens" }
+dimensSp = { module = "com.intuit.ssp:ssp-android", version.ref = "dimens" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
