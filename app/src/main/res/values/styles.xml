@@ -8,6 +8,13 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="PromptTextAppearance">
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
     <style name="RegularButton">
         <item name="android:textAllCaps">true</item>
         <item name="android:textColor">@color/white</item>

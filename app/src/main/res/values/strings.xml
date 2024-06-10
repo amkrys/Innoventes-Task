@@ -2,4 +2,17 @@
     <string name="app_name">Innoventes Task</string>
     <string name="welcome_msg">Welcome Innoventes!</string>
     <string name="click_me">Click me to start</string>
+    <string name="form_header">S.</string>
+    <string name="form_title">First of the few steps to set you up with a Bank Account</string>
+    <string name="pan_number">Pan number</string>
+    <string name="pan_eg">ABCDE1234F</string>
+    <string name="birthdate">Birthdate</string>
+    <string name="day_eg">01</string>
+    <string name="month_eg">01</string>
+    <string name="year_eg">2000</string>
+    <string name="tv_info"><![CDATA["Providing PAN & Date of Birth helps us to find and fetch your KYC from a cetral registry by the Government of India. Learn more"]]></string>
+    <string name="next">Next</string>
+    <string name="tv_no_pan">I don\'t have a PAN</string>
+    <string name="learn_more">Clicked on Learn more</string>
+    <string name="success_msg">Details submitted\nsuccessfully</string>
 </resources>
