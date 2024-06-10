@@ -14,10 +14,10 @@
         android:theme="@style/Theme.InnoventusTask"
         tools:targetApi="31" >
         <activity
-            android:name=".presentation.FormActivity"
+            android:name=".presentation.form.FormActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.MainActivity"
+            android:name=".presentation.main.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
