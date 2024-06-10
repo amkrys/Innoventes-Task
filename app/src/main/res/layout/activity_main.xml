@@ -15,7 +15,6 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/_18sdp"
         tools:context=".presentation.main.MainActivity">
 
         <TextView
@@ -29,12 +28,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.button.MaterialButton
+        <Button
+            android:id="@+id/button"
             style="@style/RegularButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/click_me"
-            android:onClick="@{() -> viewModel.onButtonClicked()}"
+            android:layout_margin="@dimen/_18sdp"
+            android:onClick="@{()-> viewModel.onButtonClicked()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Innoventus Task</string>
-    <string name="welcome_msg">Welcome Inventus!</string>
+    <string name="app_name">Innoventes Task</string>
+    <string name="welcome_msg">Welcome Innoventes!</string>
     <string name="click_me">Click me to start</string>
 </resources>

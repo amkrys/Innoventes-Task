@@ -1,13 +1,8 @@
 package com.innoventus.task.presentation.main
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
-import com.innoventus.task.R
 import com.innoventus.task.base.BaseActivity
 import com.innoventus.task.databinding.ActivityMainBinding
 import com.innoventus.task.presentation.form.FormActivity
@@ -26,7 +21,13 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        initBindingVariables()
         listenToObservers()
+    }
+
+    private fun initBindingVariables() = with(binding) {
+        lifecycleOwner = this@MainActivity
+        viewModel = mainViewModel
     }
 
     private fun listenToObservers() = lifecycleScope.launch {
