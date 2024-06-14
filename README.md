@@ -21,3 +21,6 @@ data class FormModel(
         return ObservableBoolean(panNumber.isValidPan() && day.isValidDay() && month.isValidMonth() && year.isValidYear())
     }
 }
+
+#### 2. View
+The `View` is responsible for displaying the data and handling user interactions. It observes the ViewModel and updates the UI accordingly.
