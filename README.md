@@ -2,6 +2,14 @@
 
 This project follows the MVVM (Model-View-ViewModel) architecture pattern, which is a common design pattern used in Android development to separate concerns and make the code more maintainable and testable.
 
+## Screenshots
+
+<p float="left">
+  <img src="https://github.com/amkrys/Innoventes-Task/assets/70586998/f8d6db17-85a8-470c-b0bd-07106935445c" width="200" />
+  <img src="https://github.com/amkrys/Innoventes-Task/assets/70586998/f1cd6770-2fb6-47bc-9719-fb2721d30750" width="200" /> 
+  <img src="https://github.com/amkrys/Innoventes-Task/assets/70586998/9742261b-1486-4668-ad2f-c772b986e8ed" width="200" />
+</p>
+
 ## Architecture Overview
 
 ### Model-View-ViewModel (MVVM) Architecture
