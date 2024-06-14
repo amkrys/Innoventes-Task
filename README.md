@@ -390,5 +390,5 @@ fun String?.isValidYear(): Boolean {
 **MVVM Pattern**: Separates concerns into Model, View, and ViewModel. \
 **SingleLiveEvent**: Ensures events are only handled once. \
 **Data Binding**: Connects the ViewModel with the UI components. \
-**Validation**: Ensures data integrity in the Model. \\
+**Validation**: Ensures data integrity in the Model. \
 This architecture makes the code more modular, testable, and maintainable.
