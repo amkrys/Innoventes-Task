@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.innoventus.task.R
 import com.innoventus.task.base.BaseActivity
+import com.innoventus.task.data.uimodel.FormModel
 import com.innoventus.task.databinding.ActivityFormBinding
 import com.innoventus.task.domain.interactor.ClickEvent
 import com.innoventus.task.util.observeEvent
@@ -36,6 +37,7 @@ class FormActivity : BaseActivity() {
     private fun initBindingVariables() = with(binding) {
         lifecycleOwner = this@FormActivity
         viewModel = formViewModel
+        item = FormModel()
     }
 
     private fun setupSpannable() = with(binding) {
