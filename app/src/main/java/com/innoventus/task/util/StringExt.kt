@@ -1,5 +1,7 @@
 package com.innoventus.task.util
 
+import java.text.SimpleDateFormat
+import java.util.Locale
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
@@ -21,6 +23,17 @@ fun String?.isValidPan(): Boolean {
         val matcher: Matcher = pattern.matcher(this)
         return@let length <= 10 && matcher.matches()
     } == true
+}
+
+fun String?.isValidDate(): Boolean {
+    val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+    dateFormat.isLenient = false
+    try {
+        this?.let { dateFormat.parse(it) }
+        return true
+    } catch (e: Exception) {
+        return false
+    }
 }
 
 fun String?.isValidDay(): Boolean {

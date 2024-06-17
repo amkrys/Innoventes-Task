@@ -6,10 +6,6 @@
     <data>
 
         <variable
-            name="item"
-            type="com.innoventus.task.data.uimodel.FormModel" />
-
-        <variable
             name="viewModel"
             type="com.innoventus.task.presentation.form.FormViewModel" />
 
@@ -192,7 +188,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_12sdp"
-            android:enabled="@{StringExtKt.isValidPan(viewModel.panNumberLiveData) &amp;&amp; StringExtKt.isValidDay(viewModel.dayLiveData) &amp;&amp; StringExtKt.isValidMonth(viewModel.monthLiveData) &amp;&amp; StringExtKt.isValidYear(viewModel.yearLiveData) &amp;&amp; StringExtKt.isValidMonth(viewModel.monthLiveData) &amp;&amp; StringExtKt.isValidYear(viewModel.yearLiveData)}"
+            android:enabled="@{viewModel.isValid(viewModel.panNumberLiveData, viewModel.dayLiveData, viewModel.monthLiveData, viewModel.yearLiveData)}"
             android:onClick="@{()-> viewModel.onButtonClick(event.BUTTON)}"
             android:text="@string/next"
             app:layout_constraintBottom_toTopOf="@+id/tv_no_pan"
