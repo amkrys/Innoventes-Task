@@ -20,14 +20,18 @@ The `Model` represents the data layer of the application. It includes data class
 **File: `FormModel.kt`**
 ```kotlin
 data class FormModel(
-    var panNumber: String = "",
-    var day: String = "",
-    var month: String = "",
-    var year: String = ""
+    val panNumberLiveData: MutableLiveData<String> = MutableLiveData<String>(),
+    val dayLiveData: MutableLiveData<String> = MutableLiveData<String>(),
+    val monthLiveData: MutableLiveData<String> = MutableLiveData<String>(),
+    val yearLiveData: MutableLiveData<String> = MutableLiveData<String>(),
 ) {
-    fun isValid(): ObservableBoolean {
-        return ObservableBoolean(panNumber.isValidPan() && day.isValidDay() && month.isValidMonth() && year.isValidYear())
+
+    fun isValid(pan: String?, day: String?, month: String?, year: String?): Boolean {
+        return pan.isValidPan() && day.isValidDay()
+                && month.isValidMonth() && year.isValidYear()
+                && "$day/$month/$year".isValidDate()
     }
+
 }
 ```
 
@@ -224,7 +228,7 @@ The View observes LiveData from the ViewModel and updates the UI accordingly.
                     android:layout_height="wrap_content"
                     android:hint="@string/pan_eg"
                     android:maxLength="10"
-                    android:text="@={viewModel.panNumberLiveData}" />
+                    android:text="@={item.panNumberLiveData}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -257,7 +261,7 @@ The View observes LiveData from the ViewModel and updates the UI accordingly.
                     android:imeOptions="actionNext"
                     android:inputType="date"
                     android:maxLength="2"
-                    android:text="@={viewModel.dayLiveData}" />
+                    android:text="@={item.dayLiveData}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -281,7 +285,7 @@ The View observes LiveData from the ViewModel and updates the UI accordingly.
                     android:imeOptions="actionNext"
                     android:inputType="date"
                     android:maxLength="2"
-                    android:text="@={viewModel.monthLiveData}" />
+                    android:text="@={item.monthLiveData}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -307,7 +311,7 @@ The View observes LiveData from the ViewModel and updates the UI accordingly.
                     android:imeOptions="actionDone"
                     android:inputType="date"
                     android:maxLength="4"
-                    android:text="@={viewModel.yearLiveData}" />
+                    android:text="@={item.yearLiveData}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -333,7 +337,7 @@ The View observes LiveData from the ViewModel and updates the UI accordingly.
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_12sdp"
-            android:enabled="@{StringExtKt.isValidPan(viewModel.panNumberLiveData) &amp;&amp; StringExtKt.isValidDay(viewModel.dayLiveData) &amp;&amp; StringExtKt.isValidMonth(viewModel.monthLiveData) &amp;&amp; StringExtKt.isValidYear(viewModel.yearLiveData) &amp;&amp; StringExtKt.isValidMonth(viewModel.monthLiveData) &amp;&amp; StringExtKt.isValidYear(viewModel.yearLiveData)}"
+            android:enabled="@{item.isValid(item.panNumberLiveData, item.dayLiveData, item.monthLiveData, item.yearLiveData)}"
             android:onClick="@{()-> viewModel.onButtonClick(event.BUTTON)}"
             android:text="@string/next"
             app:layout_constraintBottom_toTopOf="@+id/tv_no_pan"
@@ -373,6 +377,17 @@ fun String?.isValidPan(): Boolean {
         val matcher: Matcher = pattern.matcher(this)
         return@let length <= 10 && matcher.matches()
     } == true
+}
+
+fun String?.isValidDate(): Boolean {
+    val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+    dateFormat.isLenient = false
+    try {
+        this?.let { dateFormat.parse(it) }
+        return true
+    } catch (e: Exception) {
+        return false
+    }
 }
 
 fun String?.isValidDay(): Boolean {
